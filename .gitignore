@@ -1,4 +1,30 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+/reports/
+
+.next
+.next-export
+**/.cache-loader/
+
+.env
+.now
+.vercel
+.cache
+*.nx-tmp
+
+firebase-debug.log
+firestore-debug.log
+pubsub-debug.log
+ui-debug.log
+yarn-error.log
+mr-modulith.log
+mr-graphql-mesh.log
+
+server.js
+server.js.map
+server.d.ts
+cluster.js
+cluster.js.map
+cluster.d.ts
 
 # compiled output
 /dist
@@ -8,32 +34,13 @@
 # dependencies
 /node_modules
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# build tooling hackiness
+/.firebaserc
+/firebase.json
+.runtimeconfig.json
+/firestore.rules
+firebase-function.log
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
-.DS_Store
-Thumbs.db
+# remove this
+/functions
+cypress_install_cache/
