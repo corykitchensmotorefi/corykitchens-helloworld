@@ -9,7 +9,7 @@ steps:
     title: 'Cloning repository'
     type: 'git-clone'
     repo: 'corykitchensmotorefi/corykitchens-helloworld'
-    revision: 'branch'
+    revision: 'main'
     stage: 'clone'
 
   deployVercel:
