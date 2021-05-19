@@ -1,5 +1,17 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const withNx = require('@nrwl/next/plugins/with-nx');
 
-module.exports = {
-  target: 'experimental-serverless-trace'
-}
+module.exports = withNx({
+  nx: {
+    // Set this to false if you do not want to use SVGR
+    // See: https://github.com/gregberge/svgr
+    svgr: true,
+  },
+});
+
+
+
+//breaks the build?
+// module.exports = {
+//   target: 'experimental-serverless-trace'
+// }
