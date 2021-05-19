@@ -1,10 +1,103 @@
 {
-  
-  
   "version": 2,
-  
-  "projects": {},
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/next"
+  },
+  "defaultProject": "corykitchens-helloworld",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
+  },
+  "projects": {
+    "corykitchens-helloworld": {
+      "root": "apps/corykitchens-helloworld",
+      "sourceRoot": "apps/corykitchens-helloworld",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/corykitchens-helloworld",
+            "outputPath": "dist/apps/corykitchens-helloworld"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "corykitchens-helloworld:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "corykitchens-helloworld:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "corykitchens-helloworld:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/corykitchens-helloworld"],
+          "options": {
+            "jestConfig": "apps/corykitchens-helloworld/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/corykitchens-helloworld/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        }
+      }
+    },
+    "corykitchens-helloworld-e2e": {
+      "root": "apps/corykitchens-helloworld-e2e",
+      "sourceRoot": "apps/corykitchens-helloworld-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/corykitchens-helloworld-e2e/cypress.json",
+            "tsConfig": "apps/corykitchens-helloworld-e2e/tsconfig.e2e.json",
+            "devServerTarget": "corykitchens-helloworld:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "corykitchens-helloworld:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/corykitchens-helloworld-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    }
   }
 }

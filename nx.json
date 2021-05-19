@@ -1,8 +1,4 @@
 {
-  "npmScope": "motorefi",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -10,18 +6,25 @@
     },
     ".eslintrc.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "motorefi",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "corykitchens-helloworld": {
+      "tags": []
+    },
+    "corykitchens-helloworld-e2e": {
+      "tags": [],
+      "implicitDependencies": ["corykitchens-helloworld"]
+    }
+  }
 }
