@@ -1,0 +1,4 @@
+deployCoryKitchensHelloWorldVercel:
+  title: 'Deploy corykitchens-helloworld to Vercel'
+  environment:
+    - VERCEL_PROJECT_ID=${{VERCEL_CORYKITCHENS_HELLOWORLD_PROJECT_ID}}
