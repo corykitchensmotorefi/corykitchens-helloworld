@@ -18,8 +18,7 @@ steps:
     image: 'circleci/node:12.19.0'
     working_directory: '${{clone}}'
     commands:
-      - 'npm config get cache'
-      - 'CYPRESS_CACHE_FOLDER=$CF_VOLUME_PATH/cypress_install_cache npm ci'
+      - 'npm install'
     when:
       steps:
         - name: clone
@@ -32,5 +31,3 @@ steps:
     commands:
       - 'npx vercel -d -t $VERCEL_TOKEN --prod'
     title: 'Deploy corykitchens-helloworld to Vercel'
-    # environment:
-    #   - VERCEL_PROJECT_ID=${{VERCEL_PROJECT_ID}}
