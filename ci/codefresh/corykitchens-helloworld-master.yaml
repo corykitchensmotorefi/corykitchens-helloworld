@@ -12,16 +12,16 @@ steps:
     revision: 'main'
     stage: 'clone'
 
-  install:
-    title: 'Installing dependencies'
-    type: 'freestyle'
-    image: 'circleci/node:12.19.0'
-    working_directory: '${{clone}}'
-    commands:
-      - 'npm install'
-    when:
-      steps:
-        - name: clone
+  # install:
+  #   title: 'Installing dependencies'
+  #   type: 'freestyle'
+  #   image: 'circleci/node:12.19.0'
+  #   working_directory: '${{clone}}'
+  #   commands:
+  #     - 'npm install'
+  #   when:
+  #     steps:
+  #       - name: clone
 
   deployVercel:
     stage: 'deployVercel'
@@ -29,5 +29,6 @@ steps:
     image: 'circleci/node:12.19.0'
     working_directory: '${{clone}}'
     commands:
+      - 'npm ci'
       - 'npx vercel -d -t $VERCEL_TOKEN --prod'
     title: 'Deploy corykitchens-helloworld to Vercel'
