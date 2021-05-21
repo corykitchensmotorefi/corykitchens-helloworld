@@ -29,6 +29,7 @@ steps:
     image: 'circleci/node:12.19.0'
     working_directory: '${{clone}}'
     commands:
+      - 'npm install -g vercel'
       - 'npm ci'
-      - 'npx vercel -d -t $VERCEL_TOKEN --prod'
+      - 'vercel -d -t $VERCEL_TOKEN --prod'
     title: 'Deploy corykitchens-helloworld to Vercel'
